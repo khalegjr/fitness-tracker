@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,6 +22,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     LayoutModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
     MatSidenavModule,
     MatToolbarModule,
   ],
@@ -31,6 +35,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     LayoutModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCheckboxModule,
+    ReactiveFormsModule,
     MatSidenavModule,
     MatToolbarModule,
   ],

@@ -1,1 +1,30 @@
-<p>login works!</p>
+<section class="login-form">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Email</mat-label>
+      <input type="email" matInput placeholder="Your email"
+        formControlName="email" />
+      <mat-error
+        *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.getError('required')">
+        Field is required.
+      </mat-error>
+      <mat-error
+        *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.getError('email')">
+        E-mail is invalid.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Password</mat-label>
+      <input type="password" matInput placeholder="Your password"
+        formControlName="password" required />
+      <mat-error
+        *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.getError('required')">
+        Missing password.
+      </mat-error>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button color="primary"
+      [disabled]="loginForm.invalid">Submit</button>
+  </form>
+</section>
