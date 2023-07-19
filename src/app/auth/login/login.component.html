@@ -1,25 +1,30 @@
 <section class="login-form">
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <mat-label>Email</mat-label>
-      <input type="email" matInput placeholder="Your email" ngModel name="email"
-        email required #emailInput="ngModel" />
-      <mat-error *ngIf="emailInput.hasError('required')">
+      <input type="email" matInput placeholder="Your email"
+        formControlName="email" required />
+      <mat-error
+        *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.getError('required')">
         Field is required.
       </mat-error>
-      <mat-error *ngIf="!emailInput.hasError('required')">
+      <mat-error
+        *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.getError('email')">
         E-mail is invalid.
       </mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Password</mat-label>
-      <input type="password" matInput placeholder="Your password" ngModel
-        name="password" required #pwInput="ngModel" />
-      <mat-error> Field is required. </mat-error>
+      <input type="password" matInput placeholder="Your password"
+        formControlName="password" required />
+      <mat-error
+        *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.getError('required')">
+        Field is required.
+      </mat-error>
     </mat-form-field>
 
     <button type="submit" mat-raised-button color="primary"
-      [disabled]="f.invalid">Submit</button>
+      [disabled]="loginForm.invalid">Submit</button>
   </form>
 </section>

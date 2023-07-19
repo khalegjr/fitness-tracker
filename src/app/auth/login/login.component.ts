@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { NgForm } from "@angular/forms";
+import { FormControl, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-login",
@@ -7,7 +7,12 @@ import { NgForm } from "@angular/forms";
   styleUrls: ["./login.component.scss"],
 })
 export class LoginComponent {
-  onSubmit(form: NgForm) {
-    console.log(form);
+  loginForm = new FormGroup({
+    email: new FormControl("", [Validators.required, Validators.email]),
+    password: new FormControl("", [Validators.required]),
+  });
+
+  onSubmit() {
+    console.warn(this.loginForm.value);
   }
 }

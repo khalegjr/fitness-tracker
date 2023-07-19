@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { ReactiveFormsModule } from "@angular/forms";
 
 import { LayoutModule } from "@angular/cdk/layout";
 import { MatButtonModule } from "@angular/material/button";
@@ -20,6 +21,7 @@ import { MatInputModule } from "@angular/material/input";
     MatDatepickerModule,
     MatNativeDateModule,
     MatCheckboxModule,
+    ReactiveFormsModule,
   ],
   exports: [
     MatButtonModule,
@@ -30,6 +32,7 @@ import { MatInputModule } from "@angular/material/input";
     MatDatepickerModule,
     MatNativeDateModule,
     MatCheckboxModule,
+    ReactiveFormsModule,
   ],
 })
 export class MaterialModule {}
