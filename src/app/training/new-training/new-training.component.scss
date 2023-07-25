@@ -1,5 +1,13 @@
 mat-card {
+  justify-content: center;
+  align-items: center;
   width: 400px;
+  margin-top: 1rem;
+}
+
+mat-card-title {
+  font-weight: bold;
+  padding: 1rem 0;
 }
 
 .new-training {
