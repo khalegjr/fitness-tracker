@@ -1,5 +1,5 @@
-import { DialogRef } from '@angular/cdk/dialog';
-import { Component } from '@angular/core';
+import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
+import { Component, Inject } from '@angular/core';
 
 @Component({
   selector: 'app-dialog',
@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./dialog.component.scss'],
 })
 export class DialogComponent {
-  constructor(public dialogRef: DialogRef<string>) {}
+  constructor(
+    public dialogRef: DialogRef<string>,
+    @Inject(DIALOG_DATA) public passedData: any
+  ) {}
 }

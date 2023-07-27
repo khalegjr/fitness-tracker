@@ -1,5 +1,5 @@
-import { Dialog } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/dialog/dialog.component';
 
 @Component({
@@ -11,7 +11,7 @@ export class CurrentTrainingComponent implements OnInit {
   progress: number = 0;
   timer!: number;
 
-  constructor(private dialog: Dialog) {}
+  constructor(private dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.timer = setInterval(() => {
@@ -26,6 +26,14 @@ export class CurrentTrainingComponent implements OnInit {
   onStop() {
     clearInterval(this.timer);
 
-    this.dialog.open<string>(DialogComponent);
+    let dialogRef = this.dialog.open(DialogComponent, {
+      data: {
+        progress: this.progress,
+      },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+    });
   }
 }
