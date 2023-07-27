@@ -7,16 +7,16 @@
   <div><a routerLink="/">LOGO</a></div>
   <div class="navigation">
     <ul>
-      <li>
+      <li *ngIf="!isAuth">
         <a routerLink="/signup">Signup</a>
       </li>
-      <li>
+      <li *ngIf="!isAuth">
         <a routerLink="/login">Login</a>
       </li>
-      <li>
+      <li *ngIf="isAuth">
         <a routerLink="/training">Training</a>
       </li>
-      <li>
+      <li *ngIf="isAuth">
         <a>Logout</a>
       </li>
     </ul>
