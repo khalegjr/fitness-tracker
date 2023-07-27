@@ -1,0 +1,14 @@
+<div mat-dialog-title>Are you sure?</div>
+<div mat-dialog-actions>
+  <button
+    mat-button
+    [mat-dialog-close]="true"
+    (click)="dialogRef.close()"
+    cdkFocusInitial
+  >
+    Yes
+  </button>
+  <button mat-button [mat-dialog-close]="false" (click)="dialogRef.close()">
+    No
+  </button>
+</div>
