@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Exercise } from './exercise.model';
 
 @Injectable({
@@ -12,7 +13,8 @@ export class TrainingService {
     { id: 'burpees', name: 'Burpees', duration: 60, calories: 8 },
   ];
 
-  private runningExercise?: Exercise;
+  exerciseChanged = new Subject<Exercise | undefined>();
+  private runningExercise!: Exercise | undefined;
 
   getAvailableExercises() {
     return this.availableExercises.slice();
@@ -22,5 +24,6 @@ export class TrainingService {
     this.runningExercise = this.availableExercises.find(
       (ex) => ex.id === selectedId
     );
+    this.exerciseChanged.next({ ...this.runningExercise });
   }
 }
